@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heaven Scent</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap">
+</head>
+
+<body>
+    <header class="header" id="header" data-header>
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="">Heaven Scent
+            </a>
+            <nav class="navbar container" data-navbar>
+                <ul class="navbar-list">
+                    <li><a href="#" class="navbar-link" data-navbar-link="">Home</a></li>
+                    <li><a href="#about" class="navbar-link" data-navbar-link="">About us</a></li>
+                    <li><a href="#service" class="navbar-link" data-navbar-link="">Services</a></li>
+                    <li><a href="#contact" class="navbar-link" data-navbar-link="">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn btn-secondary" onclick="formVisibility('loginContainer')">Login</a>
+            <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+                <ion-icon name="menu-outline" aria-hidden="true" class="menu-icon"></ion-icon>
+                <ion-icon name="close-outline" aria-hidden="true" class="close-icon"></ion-icon>
+            </button>
+        </div>
+    </header>
+    <main>
+        <article class="article">
+            <section class="section hero" aria-label="hero">
+                <div class="container">
+                    <div class="hero-bg">
+                        <div class="hero-content">
+                            <h1 class="h1 hero-title">
+                                <span class="span"> Heavenly </span> Comfort, <span class="span">Scent </span> of
+                                Satisfaction
+                            </h1>
+
+                            <p class="hero-text">
+                                Experience the joy of living in your dream room today
+                            </p>
+                        </div>
+                    </div>
+            </section>
+            <section class="section about" id="about">
+                <div class="container">
+                    <div class="about-banner img-holder" style="--width: 600; --height: 700;">
+                        <img src="images/about.png" width="600px" height="700px" loading="lazy" alt=""
+                            class="img-cover">
+                    </div>
+
+                    <div class="about-content">
+                        <h2 class="h2 section-title">What to Know About Heaven Scent?</h2>
+                        <p class="section-text">At Heaven Scent, we believe that managing hostels should be a breeze,
+                            and our mission is to make that a reality. Our journey began with a simple idea: to create a
+                            hostel management system that combines efficiency and ease-of-use with a touch of luxury.
+                            We're passionate about providing hostel owners and managers with a solution that lets them
+                            focus on what they do best - creating unforgettable experiences for their guests.</p>
+
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div id="loginContainer" class="login-container">
+                    <fieldset>
+                        <legend>Login</legend>
+                        <form>
+                            <span class="close" onclick="formVisibility('loginContainer')">&times;</span>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" name="email" id="email" autocomplete="no-autofill"
+                                        class="form-control" placeholder="ID number" required>
+                                    <span>
+                                        <ion-icon name="person" class="person-icon"></ion-icon>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input id="password-login" type="password" name="password" class="form-control"
+                                        placeholder="Password" required>
+                                    <span class="showpass" onclick="showPass('password-login')">
+                                        <ion-icon name="eye-off" class="eye-icon"></ion-icon>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group remember">
+                                <input type="checkbox" name="remember">
+                                <label for="remember" class="remember-me">Remember me</label>
+                                <label class="forget-password">
+                                    <a href="#">Forgot Password?</a>
+                                </label>
+                            </div>
+                            <div class="login-btn">
+                                <div class="styled-select">
+                                    <select class="login" id="accountSelect">
+                                        <option value="admin">Login as Admin</option>
+                                        <option value="student">Login as Student</option>
+                                    </select>
+                                    <span class="arrow"><ion-icon name="chevron-down"></ion-icon></span>
+                                </div>
+                                <button type="submit" class="login" onclick="Login(event)">Log In</button>
+                            </div>
+
+                            <div class="form-group register-link">
+                                <p>Don't have an account? <a href="#"
+                                        onclick="formVisibility('signupContainer')">Sign-up</a></p>
+                            </div>
+                    </fieldset>
+                    </form>
+                </div>
+                <div id="signupContainer" class="signup-container">
+                    <fieldset>
+                        <legend>Sign in</legend>
+                        <form action="#">
+                            <span class="close" onclick="formVisibility('signupContainer')">&times;</span>
+                            <div class="input-name">
+                                <div class="input-group">
+                                    <input type="text" name="name" id="name" autocomplete="off" class="form-control"
+                                        placeholder="First name" required>
+                                    <span>
+                                        <ion-icon name="person" class="person-icon"></ion-icon>
+                                    </span>
+                                </div>
+                                <div class="input-group" id="input-group">
+                                    <input type="text" name="firstname" id="firstname" autocomplete="off"
+                                        class="form-control" placeholder="Last name" required>
+                                    <span>
+                                        <ion-icon name="person" class="person-icon"></ion-icon>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="number" name="id" id="id" autocomplete="no-autofill"
+                                        class="form-control" placeholder="User-ID" required>
+                                    <span>
+                                        <ion-icon name="person-circle" class="person-icon"></ion-icon>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="email" name="email" id="email" autocomplete="no-autofill"
+                                        class="form-control" placeholder="Email" required>
+                                    <span>
+                                        <ion-icon name="mail" class="mail-icon"></ion-icon>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" name="address" id="address" autocomplete="no-autofill"
+                                        class="form-control" placeholder="Address" required>
+                                    <span>
+                                        <ion-icon name="navigate" class="person-icon"></ion-icon>
+                                    </span>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input id="password-signup" type="password" name="password" class="form-control"
+                                        placeholder="Password" required>
+                                    <span class="showpass" onclick="showPass('password-signup')">
+                                        <ion-icon name="eye-off" class="eye-icon"></ion-icon>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input id="password-retype" type="password" name="password" class="form-control"
+                                        placeholder="Confirm Password" required>
+                                    <span class="showpass" onclick="showPass('password-retype')">
+                                        <ion-icon name="eye-off" class="eye-icon"></ion-icon>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="signup-btn">
+                                <button type="submit" class="signup" onclick="validatePassword()">Sign up</button>
+                            </div>
+                            <div class="form-group login-link">
+                                <p>Already have an account? <a href="#"
+                                        onclick="formVisibility('signupContainer')">Log-in</a></p>
+                            </div>
+                    </fieldset>
+                    </form>
+                </div>
+            </section>
+
+            <!--========== SECTION ==========-->
+            <section class="section service" id="service" aria-label="service">
+                <div class="container">
+                    <h2 class="section-title">Our Services</h2>
+                    <p class="section-text">At Heaven Scent, we pride ourselves on creating moments of joy for our
+                        guests. Embrace a seamless fusion of comfort, serenity, and gastronomic delight as you immerse
+                        yourself in the unique experience we have meticulously crafted for you</p>
+                    <ul class="service-list">
+                        <li>
+                            <div class="service-card">
+                                <div class="card-icon">
+                                    <ion-icon name="home-outline"></ion-icon>
+                                </div>
+                                <h3 class="h3 card-title">Reside in comfort</h3>
+                                <p class="card-text">
+                                    Immerse yourself in the luxury of our thoughtfully designed rooms. – experience
+                                    comfort like never before.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="service-card">
+                                <div class="card-icon">
+                                    <ion-icon name="restaurant-outline"></ion-icon>
+                                </div>
+
+                                <h3 class="h3 card-title">Savor Every Bite</h3>
+                                <p class="card-text">
+                                    Indulge in the exquisite flavors of your favorite meals. A culinary journey awaits
+                                    you – buy your cherished meal now.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="service-card">
+                                <div class="card-icon">
+                                    <ion-icon name="eye-outline"></ion-icon>
+                                </div>
+                                <h3 class="h3 card-title">Crystal Clear Transparency</h3>
+                                <p class="card-text">
+                                    Experience openness and honesty in every detail. Our commitment to transparency is
+                                    the foundation of a trustworthy for you.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!--=========== PROPERTIES ===========-->
+            <section class="section property" id="property" aria-label="property">
+                <div class="container">
+                    <h2 class="h2 section-title">Premier Rooms</h2>
+                    <p class="section-text">
+                        Discover a range of meticulously designed rooms, each tailored to provide a unique and
+                        delightful experience
+                    </p>
+                    <ul class="property-list">
+                        <li>
+                            <div class="property-card">
+                                <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
+                                    <img src="images/room1.jpg" width="800px" height="533" loading="lazy" alt=""
+                                        class="img-cover">
+                                </figure>
+                                <button class="card-action-btn" aria-label="add to favourite"
+                                    onclick="toggleIcon('heart-icon')">
+                                    <ion-icon id="heart-icon" name="heart-outline"></ion-icon>
+                                </button>
+
+                                <div class="card-content">
+                                    <h3 class="h3">
+                                        <a href="#" class="card-title">Urban Chic Lodgings</a>
+                                    </h3>
+                                    <ul class="card-list">
+                                        <li class="card-item">
+                                            <div class="item-icon">
+                                                <ion-icon name="cube-outline"></ion-icon>
+                                            </div>
+
+                                            <span class="item-text">300sqt</span>
+                                        </li>
+
+                                        <li class="card-item">
+                                            <div class="item-icon">
+                                                <ion-icon name="bed-outline"></ion-icon>
+                                            </div>
+                                            <span class="item-text">1 Bed</span>
+                                        </li>
+
+                                        <li class="card-item">
+                                            <div class="item-icon">
+                                                <ion-icon name="pricetag-outline"></ion-icon>
+                                            </div>
+                                            <span class="item-text">PHP 1,500</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="property-card">
+                                <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
+                                    <img src="images/room2.jpg" width="800px" height="533" loading="lazy" alt=""
+                                        class="img-cover">
+                                </figure>
+                                <button class="card-action-btn" aria-label="add to favourite"
+                                    onclick="toggleIcon('heart-icon1')">
+                                    <ion-icon id="heart-icon1" name="heart-outline"></ion-icon>
+                                </button>
+                                <div class="card-content">
+                                    <h3 class="h3">
+                                        <a href="#" class="card-title">Double Serenity Oasis</a>
+                                    </h3>
+                                    <ul class="card-list">
+                                        <li class="card-item">
+                                            <div class="item-icon">
+                                                <ion-icon name="cube-outline"></ion-icon>
+                                            </div>
+
+                                            <span class="item-text">500sqf</span>
+                                        </li>
+
+                                        <li class="card-item">
+                                            <div class="item-icon">
+                                                <ion-icon name="bed-outline"></ion-icon>
+                                            </div>
+                                            <span class="item-text">2 Beds</span>
+                                        </li>
+
+                                        <li class="card-item">
+                                            <div class="item-icon">
+                                                <ion-icon name="pricetag-outline"></ion-icon>
+                                            </div>
+                                            <span class="item-text">PHP 3,500</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="property-card">
+                                <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
+                                    <img src="images/room3.jpg" width="800px" height="533" loading="lazy" alt=""
+                                        class="img-cover">
+                                </figure>
+                                <button class="card-action-btn" aria-label="add to favourite"
+                                    onclick="toggleIcon('heart-icon2')">
+                                    <ion-icon id="heart-icon2" name="heart-outline"></ion-icon>
+                                </button>
+
+                                <div class="card-content">
+                                    <h3 class="h3">
+                                        <a href="#" class="card-title">Chestnut Comfort Oasis</a>
+                                    </h3>
+                                    <ul class="card-list">
+                                        <li class="card-item">
+                                            <div class="item-icon">
+                                                <ion-icon name="cube-outline"></ion-icon>
+                                            </div>
+
+                                            <span class="item-text">400sqf</span>
+                                        </li>
+
+                                        <li class="card-item">
+                                            <div class="item-icon">
+                                                <ion-icon name="bed-outline"></ion-icon>
+                                            </div>
+                                            <span class="item-text">2 Beds</span>
+                                        </li>
+
+                                        <li class="card-item">
+                                            <div class="item-icon">
+                                                <ion-icon name="pricetag-outline"></ion-icon>
+                                            </div>
+                                            <span class="item-text">PHP 2,500</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!--=========== TESTIMONY ==========-->
+            <section class="section wrapper wrapper2 top">
+                <div class="container">
+                    <div class="text">
+                        <div class="heading">
+                            <h2>Indulge in Culinary Delights!</h2>
+                        </div>
+
+                        <div class="para">
+                            <p>Explore our mouth-watering menu and treat yourself to a delightful culinary experience.
+                                Order now and satisfy your cravings!</p>
+                            <div class="box flex">
+                                <div class="img">
+                                    <img src="images/iconfood.jpeg" alt="">
+                                </div> <br>
+                                <div class="name">
+                                    <h5>Medley Buffet</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--========= CONTACT =========-->
+            <section class="section contact" id="contact" aria-label="contact">
+                <div class="container">
+                    <h2 class="h2 section-title">Have a Question ? Get in touch</h2>
+
+                    <p class="section-text">
+                        Your comfort is our top priority, and we invite you to connect with us for any inquiries or
+                        concerns. Whether you have a special request, need assistance with your booking, or simply want
+                        to share your preferences, our dedicated team is here to ensure your experience exceeds
+                        expectations
+                    </p>
+                    <button class="btn btn-primary">
+                        <ion-icon name="call-outline"></ion-icon>
+                        <span class="span"><a href="#" onclick="formVisibility('loginContainer')">Contact us</a></span>
+                    </button>
+                </div>
+            </section>
+
+            <!--======= FOOTER ========-->
+            <footer class="footer">
+                <div class="footer-top">
+                    <div class="container">
+                        <div class="footer-brand">
+                            <a href="#" class="logo">
+                                <ion-icon name="home-outline"></ion-icon> HeavenScent
+                            </a>
+                            <p class="footer-text">
+                                Explore unmatched coziness and peace – where each instant is tailored for your joy.
+                                Immerse yourself in a sanctuary of serenity with us.
+                            </p>
+                        </div>
+
+                        <ul class="footer-list">
+                            <li>
+                                <p class="footer-list-title">Company</p>
+                            </li>
+                            <li>
+                                <a href="#about" class="footer-link">
+                                    <ion-icon name="chevron-forward"></ion-icon>
+                                    <span class="span">About us</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#services" class="footer-link">
+                                    <ion-icon name="chevron-forward"></ion-icon>
+                                    <span class="span">Services</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#contact" class="footer-link">
+                                    <ion-icon name="chevron-forward"></ion-icon>
+                                    <span class="span">Contact us</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="footer-link">
+                                    <ion-icon name="chevron-forward"></ion-icon>
+                                    <span class="span" onclick="formVisibility('loginContainer')">Login</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul class="footer-list">
+                            <li>
+                                <p class="footer-list-title">Contact Details</p>
+                            </li>
+
+                            <li class="footer-item">
+                                <ion-icon name="location-outline"></ion-icon>
+                                <address class="address">
+                                    Bagtas Tanza, <br>
+                                    Cavite
+                                </address>
+                            </li>
+
+                            <li class="footer-item">
+                                <ion-icon name="mail-outline"></ion-icon>
+                                <a href="#" class="footer-link">HeavenScents@gmail.com</a>
+                            </li>
+
+                            <li class="footer-item">
+                                <ion-icon name="call-outline"></ion-icon>
+                                <a href="tel: 000-111-22233" class="footer-link">000-111-22233</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="container">
+                        <p class="copyright">
+                            &copy; 2023 HostelManagement. All rights reserved by <a href="#"
+                                class="copyright-link">HeavenScents</a>
+                        </p>
+
+                        <ul class="social-list">
+                            <li>
+                                <a href="#" class="social-link">
+                                    <ion-icon name="logo-facebook"></ion-icon>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-link">
+                                    <ion-icon name="logo-instagram"></ion-icon>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-link">
+                                    <ion-icon name="logo-twitter"></ion-icon>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-link">
+                                    <ion-icon name="logo-linkedin"></ion-icon>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <script src="main.js" defer></script>
+    <!--=========== ionicon link ==========-->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
+
+</html>

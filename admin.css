@@ -1,0 +1,1126 @@
+:root {
+
+  /*======== colors =========*/
+
+  --oxford-blue_60: hsla(224, 34%, 13%, 0.6);
+  --green-pigment: hsl(202, 86%, 51%);
+  --dark-green-pigment: hsl(202, 86%, 41%);
+  --oxford-blue: hsl(224, 34%, 13%);
+  --red: hsl(0, 72%, 51%);
+  --mint-cream: hsl(146, 41%, 97%);
+  --cadet-gray: hsl(215, 20%, 65%);
+  --carcoal_15: hsla(214, 19%, 29%, 0.15);
+  --carcoal_10: hsla(214, 19%, 29%, 0.10);
+  --manatee: hsl(218, 11%, 65%);
+  --darkmanatee: hsl(218, 11%, 40%);
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --darkgreen: #253439;
+  --brown: #AC9551;
+  --darkbrown: #90804B;
+  --blue: #007bff;
+  --grey: #D9D9D9;
+
+  /*======= typography ========*/
+
+  --ff-spartan: 'League Spartan', sans-serif;
+
+  --fs-1: 3.6rem;
+  --fs-2: 2.4rem;
+  --fs-22: 2.2rem;
+  --fs-3: 2rem;
+  --fs-4: 1.8rem;
+  --fs-5: 1.7rem;
+
+  --fw-600: 600;
+  --fw-500: 500;
+
+  /*======= shadow =======*/
+
+  --shadow-1: 0 1px 2px hsla(0, 0%, 0%, 0.2);
+  --shadow-2: 0 0 3px var(--carcoal_15);
+  --shadow-3: 0 20px 25px -5px var(--carcoal_10),
+    0 10px 10px -5px var(--carcoal_10);
+
+
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a,
+img,
+span,
+label,
+input,
+select,
+button,
+ion-icon {
+  display: block;
+}
+
+img {
+  height: auto;
+}
+
+input,
+select,
+button {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+input {
+  width: 100%;
+  caret-color: auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+ion-icon {
+  pointer-events: none;
+}
+
+
+html {
+  font-family: var(--ff-spartan);
+  font-size: 10px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 9rem;
+}
+
+body {
+  background-color: var(--grey);
+  font-size: var(--fs-5);
+  color: var(--darkmanatee);
+  margin: 0;
+  caret-color: transparent;
+
+}
+
+main {
+  display: flex;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+
+  display: none;
+}
+
+/*======== REUSABLE STYLE ==========*/
+.container {
+  padding-inline: 15px;
+}
+
+.btn {
+  background-color: var(--darkgreen);
+  color: var(--grey);
+  font-weight: var(--fw-500);
+  max-width: max-content;
+  padding: var(--padding, 12px 28px);
+}
+
+.btn-secondary {
+  border-radius: 50px;
+}
+
+h4 {
+  margin-left: 40px;
+  color: var(--darkgreen);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+table {
+  font-size: 14px;
+  width: 100%;
+}
+
+/*===========HEADER STYLE ===========*/
+.header {
+  display: flex;
+  background-color: var(--brown);
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 60px;
+  align-items: center;
+  z-index: 4;
+}
+
+.header .container {
+  display: flex;
+  background-color: var(--darkbrown);
+  width: 180px;
+  height: 100%;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: var(--fw-600);
+  color: var(--grey);
+}
+
+.logo ion-icon {
+  display: inline-block;
+  color: var(--grey);
+  --ionicon-stroke-width: 50px;
+}
+
+/*=======SIDE NAV======*/
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+
+}
+
+.profile-container ion-icon {
+  margin-left: 15px;
+  font-size: 4rem;
+  color: var(--darkbrown);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--grey);
+}
+
+.user-name {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.user-role {
+  font-size: 12px;
+}
+
+#sidebar {
+  width: 180px;
+  height: 100vh;
+  background-color: var(--darkgreen);
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  padding-top: 80px;
+  flex-grow: 1;
+}
+
+.board {
+  background-color: var(--black);
+}
+
+.boards,
+.bills-board {
+  background-color: var(--darkbrown);
+  color: var(--darkgreen);
+}
+
+.line {
+  height: 100%;
+  width: 5px;
+  background-color: var(--brown);
+  position: absolute;
+  display: none;
+  left: 0;
+  top: 0;
+}
+
+.board .line {
+  display: block;
+}
+
+nav li {
+  margin-bottom: 5px;
+}
+
+nav ul {
+  margin-top: 20px;
+}
+
+nav a {
+  color: var(--grey);
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  transition: background-color 0.3s;
+  flex-direction: row;
+  gap: 10px;
+}
+
+nav .justify-icon {
+  justify-content: space-around;
+}
+
+ul a:hover:not(.icon):not(.mealOptions a):not(.billsOptions a) {
+  color: var(--brown);
+  transition: background-color 0.3s ease;
+
+}
+
+nav ion-icon:not(.arrow) {
+  margin-right: 15px;
+}
+
+.arrow {
+  font-size: 18px;
+}
+
+.mealOptions,
+.billsOptions {
+  background-color: #999999;
+  display: none;
+  font-weight: bold;
+  position: inherit;
+}
+
+.nav-items,
+.bills-item {
+  font-size: 14px;
+  color: var(--darkgreen);
+  display: flex;
+  justify-content: center;
+}
+
+.nav-item:not(#logout) {
+  font-size: 15px;
+  position: relative;
+}
+
+.logoutForm,
+.deleteRoom {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--darkgreen);
+  z-index: 9999;
+  padding: 30px;
+  color: var(--white);
+  border-radius: 8px;
+}
+
+.logout-option,
+.delete-Option {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.cancel {
+  color: var(--green-pigment);
+}
+
+.logout {
+  bottom: 0;
+  margin-top: 10px;
+  position: absolute;
+}
+
+.logouts,
+.confirmDelete {
+  color: var(--red);
+}
+
+/*========Main Container==========*/
+
+.header {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  background-color: var(--brown);
+  color: var(--white);
+
+}
+
+/*=========DASHBOARD=======*/
+
+.features {
+  background-color: var(--white);
+  margin: 75px 10px 5px 195px;
+  width: calc(100% - 210px);
+  min-height: calc(100vh - 40px - 50px);
+  max-height: calc(100vh - 30px - 40px);
+  padding: 20px;
+  overflow-y: auto;
+  position: absolute;
+  box-shadow: var(--shadow-1);
+  opacity: 1;
+  transition: opacity 0.1s ease-in-out;
+  scroll-behavior: smooth;
+
+}
+
+.features.hide {
+  display: none;
+  pointer-events: none;
+}
+
+.maincontent {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.maincontent div:not(.header) {
+  padding: 20px;
+  background-color: var(--white);
+  height: 150px;
+  width: auto;
+  color: var(--brown);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  box-shadow: var(--shadow-1);
+  border: 0.2px solid var(--grey);
+  gap: 18px;
+  cursor: pointer;
+}
+
+/*========Profile==========*/
+
+.profile,
+.userManagement,
+.roomManagement,
+.mealManagement,
+.sideManagement,
+.drinksManagement,
+.billsManagement,
+.paymentManagement,
+.feedback {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 70px;
+}
+
+.profile div:not(.header) {
+  width: 40%;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.profile label {
+  color: var(--brown);
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.profile input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid var(--grey);
+  border-radius: 4px;
+  outline: none;
+}
+
+.updatePass {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--darkgreen);
+  z-index: 9999;
+  padding: 20px;
+  width: 400px;
+  height: 300px;
+  box-shadow: var(--shadow-1);
+  border-radius: 8px;
+}
+
+.updatePass form,
+.addRoom form {
+  min-width: 300px;
+  height: 250px;
+  padding: 20px;
+  box-shadow: var(--shadow-1);
+  background-color: var(--darkgreen);
+}
+
+.updatePass legend,
+.addRoom legend {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 20px;
+  font-size: 18px;
+  color: var(--brown);
+  text-transform: uppercase;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.updatePass input,
+.addRoom input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid var(--grey);
+  border-radius: 4px;
+  outline: none;
+  color: var(--white);
+  position: relative;
+}
+
+.updatePass input::placeholder,
+.addRoom input::placeholder {
+  color: var(--brown);
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.updatePass input:focus::placeholder,
+.addRoom input:focus::placeholder {
+  opacity: 1;
+  transform: translateY(-10px);
+}
+
+.updatePass button,
+.addRoom button, 
+.room button{
+  width: 100%;
+  background-color: var(--brown);
+  border-radius: 4px;
+  color: var(--darkgreen);
+}
+
+.updatePass button:hover,
+.addRoom button:hover {
+  background-color: var(--darkbrown);
+}
+
+.input-group .showpass {
+  position: absolute;
+  cursor: pointer;
+  right: 12px;
+  top: 10px;
+  transform: translateY(0);
+  color: var(--white);
+  font-size: 18px;
+}
+
+input[disabled] {
+  background-color: var(--grey);
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid var(--brown);
+  border-radius: 4px;
+  color: var(--darkgreen);
+  margin-bottom: 5px;
+  width: 100px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 10px;
+  gap: 20px;
+}
+
+button.edit {
+  background-color: #4CAF50;
+}
+
+button.save {
+  background-color: var(--green-pigment);
+}
+
+button.update {
+  background-color: var(--brown);
+}
+
+
+/*==========User Management===========*/
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background-color: var(--grey);
+}
+
+td,
+th {
+  border: 1px solid var(--grey);
+  text-align: center;
+  padding: 16px;
+}
+
+table a {
+  color: var(--green-pigment);
+  display: inline;
+  margin-left: 1 0px;
+
+}
+
+table a:hover {
+  color: var(--dark-green-pigment);
+}
+
+.info,
+.addRoom {
+  display: none;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--darkgreen);
+  z-index: 9999;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.info form {
+  max-width: 400px;
+  min-width: 260px;
+  padding: 10px;
+  box-shadow: var(--shadow-1);
+  background-color: var(--darkgreen);
+
+}
+
+.details label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 20px;
+  margin-top: 15px;
+  color: var(--brown);
+}
+
+.details span {
+  color: var(--white);
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: lighter;
+  font-size: 16px;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.close:hover {
+  color: var(--brown);
+}
+
+/*============================Room management============================*/
+.addRoom {
+  position: fixed;
+  margin-top: 0;
+}
+
+.addRoom form {
+  height: inherit;
+}
+
+.rooms {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.rooms .addbtn {
+  height: auto;
+  width: auto;
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column-end: span 1;
+  color: var(--brown);
+  background-color: var(--grey);
+  cursor: pointer;
+  font-size: 50px;
+}
+
+.rooms .addbtn:hover {
+  color: var(--darkbrown);
+}
+
+.room {
+  position: relative;
+  text-align: center;
+  border: 1px solid var(--grey);
+  border-radius: 8px;
+  padding: 10px;
+  width: auto;
+  height: auto;
+  color: #253439;
+}
+
+.room .roomName {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: Founders Grotesk or Sneak;
+}
+
+.room .roomDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 10px 10px;
+}
+
+.room ion-icon {
+  margin-right: 5px;
+  color: var(--green-pigment);
+}
+
+.room img {
+  max-width: 100%;
+  max-height: 200px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.room .roomName[contentEditable="true"],
+.room .roomDetails label[contentEditable="true"] {
+  border: 1px solid var(--darkbrown);
+  outline: none;
+  caret-color: #253439;
+}
+
+/*========Meal Management==================================*/
+.mealManagement table,
+.sideManagement table,
+.drinksManagement {
+  caret-color: auto;
+}
+
+.mealManagement .item,
+.sideManagement .item,
+.drinksManagement .item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.mealManagement a,
+.sideManagement a,
+.drinksManagement a,
+.feedback a {
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.action-link {
+  color: var(--darkgreen);
+  cursor: pointer;
+  border: 1px solid var(--brown);
+  padding: 8px;
+  font-weight: bold;
+  box-shadow: var(--shadow-1);
+}
+
+td img {
+  max-height: 50px;
+  max-width: 50px;
+  display: block;
+  margin: auto;
+}
+
+td input[type="file"] {
+  display: none;
+}
+
+.userManagement .view,
+.feedback .reply {
+  background-color: var(--green-pigment);
+  color: var(--white);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.mealManagement .edit,
+.sideManagement .edit,
+.drinksManagement .edit {
+  color: var(--white);
+  background-color: var(--green-pigment);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.delete {
+  color: var(--white);
+  background-color: red;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.delete:hover {
+  color: var(--grey);
+}
+
+.meal .buttons,
+.side .buttons,
+.drinks .buttons {
+  justify-content: center;
+  padding: 20px;
+  margin-top: auto;
+}
+
+button.addRow {
+  background-color: var(--brown);
+}
+
+/** ======== Payments ========*/
+.payment-container {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.search a {
+  position: absolute;
+  cursor: pointer;
+  color: var(--darkgreen);
+  font-size: 18px;
+  transform: translateY(-50%) translateX(-50%);
+  right: 0;
+  margin-right: 10px;
+}
+
+.payment-container input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--grey);
+  border-radius: 4px;
+  margin-bottom: 16px;
+  color: var(--darkgreen);
+  outline: none;
+}
+
+#itemDetails,
+#itemDetailss {
+  border: 1px solid var(--grey);
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table {
+  max-width: 400px;
+}
+
+.table .title-head,
+.table .title,
+.table .title-heads {
+  color: var(--darkgreen);
+  background-color: var(--white);
+  font-size: 15px;
+  border: 0;
+  border-bottom: 1px dashed var(--darkgreen);
+  margin: 0;
+}
+
+.table .title {
+  border-bottom: 1px solid var(--darkgreen);
+}
+
+.table .title-heads {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.table td {
+  padding: 8px;
+  font-size: 14px;
+  border: 0;
+}
+
+.table .space {
+  padding: 20px;
+}
+
+.table .total {
+  background-color: white;
+  border: 0;
+  font-size: 15px;
+  padding-top: 0;
+  padding-bottom: 5px;
+  color: var(--darwkgreen);
+}
+
+.table .totals,
+.table .b {
+  display: flex;
+
+}
+
+.table .a {
+  display: flex;
+  margin-top: 5px;
+  color: var(--darkbrown);
+  font-size: 20px;
+}
+
+.payment-container .payment {
+  padding: 10px;
+  background-color: var(--brown);
+  color: var(--darkgreen);
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.notification {
+  display: none;
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+  left: 50%;
+  background: var(--darkgreen);
+  color: var(--white);
+  z-index: 9999;
+  padding: 10px;
+  width: 200px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.print {
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  margin-top: 16px;
+  color: var(--darkgreen);
+}
+
+/* ======= FEedbacks ============*/
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  outline: none;
+  caret-color: auto;
+}
+
+.status {
+  color: var(--red);
+}
+
+/*=======MEDIA QUERY=========*/
+
+@media screen and (max-width: 960px) {
+
+
+  .features {
+    max-height: calc(100vh - 40px - 40px);
+
+  }
+
+  .maincontent {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .profile div:not(.header) {
+    width: 100%;
+    margin: 0;
+
+  }
+
+  label {
+    font-size: 14px;
+    white-space: nowrap;
+
+  }
+
+  input {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .buttons {
+    margin-top: 0px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 90%;
+  }
+
+  form {
+    min-width: 200px;
+    padding: 5px;
+  }
+
+  .logout {
+    position: relative;
+  }
+
+  .updatePass {
+    width: 300px;
+    height: 200px;
+  }
+
+  .updatePass form {
+    min-width: 200px;
+    height: 150px;
+  }
+
+  .updatePass legend {
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-left: 10px;
+    font-size: 14px;
+  }
+
+  .updatePass input {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .updatePass input::placeholder {
+    color: var(--brown);
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  .updatePass input:focus::placeholder {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    width: 100vw;
+  }
+
+  .features {
+    max-height: calc(100vh - 40px - 40px);
+
+  }
+
+  .maincontent {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  td,
+  th {
+    font-size: 14px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  form img {
+    height: 50px;
+  }
+
+  .details label {
+    flex-direction: column;
+    margin-top: 5px;
+  }
+
+  .details span {
+    margin-left: 0;
+    font-size: 14px;
+  }
+
+  .logout {
+    position: relative;
+  }
+
+}
+
+@media screen and (max-height: 550px) {
+  .logout {
+    position: relative;
+  }
+}

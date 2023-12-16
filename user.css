@@ -1,0 +1,260 @@
+:root {
+
+    /*======== colors =========*/
+
+    --oxford-blue_60: hsla(224, 34%, 13%, 0.6);
+    --green-pigment: hsl(202, 86%, 51%);
+    --dark-green-pigment: hsl(202, 86%, 41%);
+    --oxford-blue: hsl(224, 34%, 13%);
+    --red: hsl(0, 72%, 51%);
+    --mint-cream: hsl(146, 41%, 97%);
+    --cadet-gray: hsl(215, 20%, 65%);
+    --carcoal_15: hsla(214, 19%, 29%, 0.15);
+    --carcoal_10: hsla(214, 19%, 29%, 0.10);
+    --manatee: hsl(218, 11%, 65%);
+    --darkmanatee: hsl(218, 11%, 40%);
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%);
+    --darkgreen: #253439;
+    --brown: #AC9551;
+    --darkbrown: #90804B;
+    --blue: #007bff;
+    --grey: #D9D9D9;
+
+    /*======= typography ========*/
+
+    --ff-spartan: 'League Spartan', sans-serif;
+
+    --fs-1: 3.6rem;
+    --fs-2: 2.4rem;
+    --fs-22: 2.2rem;
+    --fs-3: 2rem;
+    --fs-4: 1.8rem;
+    --fs-5: 1.7rem;
+
+    --fw-600: 600;
+    --fw-500: 500;
+
+    /*======= shadow =======*/
+
+    --shadow-1: 0 1px 2px hsla(0, 0%, 0%, 0.2);
+    --shadow-2: 0 0 3px var(--carcoal_15);
+    --shadow-3: 0 20px 25px -5px var(--carcoal_10),
+        0 10px 10px -5px var(--carcoal_10);
+
+
+}
+
+.mealManagementUser {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 70px;
+    padding: 40px;
+}
+/** ==================Room Management===============*/
+.room {
+    position: relative;
+    text-align: center;
+    border: 1px solid var(--grey);
+    border-radius: 8px;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    color: #253439;
+  }
+.bookRoom {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--darkgreen);
+    z-index: 9999;
+    padding: 20px;
+    width: 400px;
+    height: 390px;
+    box-shadow: var(--shadow-1);
+    border-radius: 8px;
+}
+
+.bookRoom form {
+    min-width: 300px;
+    height: 250px;
+    padding: 20px;
+    box-shadow: var(--shadow-1);
+    background-color: var(--darkgreen);
+}
+
+.bookRoom form {
+    height: 330px;
+}
+.rooms {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.bookRoom legend {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 20px;
+    font-size: 18px;
+    color: var(--brown);
+    text-transform: uppercase;
+}
+
+.bookRoom label {
+    color: var(--darkbrown);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.bookRoom input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid var(--grey);
+    border-radius: 4px;
+    outline: none;
+    color: var(--white);
+    position: relative;
+}
+
+.bookRoom input::placeholder {
+    color: var(--white);
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.bookRoom input::placeholder {
+    color: var(--white);
+}
+
+.bookRoom input:focus::placeholder {
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+.bookRoom button {
+    width: 100%;
+    background-color: var(--brown);
+    border-radius: 4px;
+    color: var(--darkgreen);
+}
+
+.bookRoom button:hover {
+    background-color: var(--darkbrown);
+}
+
+.bookRoom .calendar {
+    position: absolute;
+    cursor: pointer;
+    right: 12px;
+    top: 10px;
+    transform: translateY(0);
+    color: var(--white);
+    font-size: 18px;
+}
+/**====================Meal Managament======================*/
+.meal .viewOrder{
+    position: absolute;
+    z-index: 9999;
+    right: 0;
+    top: 0;
+    margin-top: 40px;
+    margin-right: 35px;
+}
+.order-button{
+   width: 120px;
+   white-space: nowrap;
+   background-color: var(--darkgreen);
+   color: var(--white); 
+   display: flex;
+   justify-content: center;
+   margin-top: 40px;
+   margin-right: 35px;
+}
+#orderCount{
+    color: red;
+    font-size: 14px;
+}
+.mealList button{
+    width: 100%;
+    background-color: var(--brown);
+    border-radius: 4px;
+    color: var(--darkgreen);
+}
+
+.mealList button:hover:not(.mealDetails .quantity-button){
+    background-color: var(--darkbrown);
+}
+
+.mealList .mealName {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 18px;
+    font-family: Founders Grotesk or Sneak;
+    color: var(--darkgreen);
+}
+
+.mealList .mealDetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 10px 10px;
+    color: var(--darkgreen);
+}
+
+.mealList ion-icon {
+    margin-right: 5px;
+    color: var(--darkgreen);
+}
+
+.mealList img {
+    max-width: 100%;
+    max-height: 200px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mealList {
+    position: relative;
+    text-align: center;
+    border: 1px solid var(--grey);
+    border-radius: 8px;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    color: var(--darkgreen)s;
+}
+.mealList .quantity-container {
+    display: flex;
+    align-items: center;
+}
+
+.mealList .quantity-input {
+    width: 30px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.mealList .quantity-button {
+    background-color: darkgreen;
+    color: var(--white);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
