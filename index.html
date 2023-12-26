@@ -106,7 +106,7 @@
                                 <div class="styled-select">
                                     <select class="login" id="accountSelect">
                                         <option value="admin">Login as Admin</option>
-                                        <option value="student">Login as Student</option>
+                                        <option value="student">Login as Student &nbsp;</option>
                                     </select>
                                     <span class="arrow"><ion-icon name="chevron-down"></ion-icon></span>
                                 </div>
@@ -120,22 +120,23 @@
                     </fieldset>
                     </form>
                 </div>
+                <!-- =============================SIGN UP================================-->
                 <div id="signupContainer" class="signup-container">
                     <fieldset>
                         <legend>Sign in</legend>
-                        <form action="#">
-                            <span class="close" onclick="formVisibility('signupContainer')">&times;</span>
+                        <form method="POST" action="" name="signup" id="signupForm" >
+                            <span class="close" onclick="formVisibility('signupContainer');">&times;</span>
                             <div class="input-name">
                                 <div class="input-group">
-                                    <input type="text" name="name" id="name" autocomplete="off" class="form-control"
-                                        placeholder="First name" required>
+                                    <input type="text" name="firstname" id="firstname" autocomplete="off" class="form-control"
+                                        placeholder="First name" value="" required>
                                     <span>
                                         <ion-icon name="person" class="person-icon"></ion-icon>
                                     </span>
                                 </div>
                                 <div class="input-group" id="input-group">
-                                    <input type="text" name="firstname" id="firstname" autocomplete="off"
-                                        class="form-control" placeholder="Last name" required>
+                                    <input type="text" name="lastname" id="lastname" autocomplete="off"
+                                        class="form-control" placeholder="Last name" value="" required>
                                     <span>
                                         <ion-icon name="person" class="person-icon"></ion-icon>
                                     </span>
@@ -143,8 +144,8 @@
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input type="number" name="id" id="id" autocomplete="no-autofill"
-                                        class="form-control" placeholder="User-ID" required>
+                                    <input type="number" name="userID" id="userID" autocomplete="no-autofill"
+                                        class="form-control" placeholder="Enter User ID (ex.123456789)" value=">" required>
                                     <span>
                                         <ion-icon name="person-circle" class="person-icon"></ion-icon>
                                     </span>
@@ -153,7 +154,7 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <input type="email" name="email" id="email" autocomplete="no-autofill"
-                                        class="form-control" placeholder="Email" required>
+                                        class="form-control" placeholder="Email@gmail.com" value="" required>
                                     <span>
                                         <ion-icon name="mail" class="mail-icon"></ion-icon>
                                     </span>
@@ -162,19 +163,8 @@
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input type="text" name="address" id="address" autocomplete="no-autofill"
-                                        class="form-control" placeholder="Address" required>
-                                    <span>
-                                        <ion-icon name="navigate" class="person-icon"></ion-icon>
-                                    </span>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <div class="input-group">
                                     <input id="password-signup" type="password" name="password" class="form-control"
-                                        placeholder="Password" required>
+                                        placeholder="Enter Password" required>
                                     <span class="showpass" onclick="showPass('password-signup')">
                                         <ion-icon name="eye-off" class="eye-icon"></ion-icon>
                                     </span>
@@ -182,21 +172,23 @@
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input id="password-retype" type="password" name="password" class="form-control"
+                                    <input id="password-retype" type="password" name="confirm_password" class="form-control"
                                         placeholder="Confirm Password" required>
                                     <span class="showpass" onclick="showPass('password-retype')">
                                         <ion-icon name="eye-off" class="eye-icon"></ion-icon>
                                     </span>
                                 </div>
                             </div>
-
+                            
                             <div class="signup-btn">
-                                <button type="submit" class="signup" onclick="validatePassword()">Sign up</button>
+                                <button type="button" name="signup" class="signup">Sign up</button>                                   
                             </div>
                             <div class="form-group login-link">
                                 <p>Already have an account? <a href="#"
-                                        onclick="formVisibility('signupContainer')">Log-in</a></p>
+                                        onclick="formVisibility('signupContainer')">Log-in</a></p>   
+                                                                
                             </div>
+                           
                     </fieldset>
                     </form>
                 </div>
