@@ -57,6 +57,8 @@ const changeTab = function(){
 }
 
 addEventOnElement(tabBtns, "click", changeTab)
+
+// =============== LOGIN AND SIGNUP =======================
 function formVisibility(containerId) {
 
     var container = document.getElementById(containerId);
@@ -73,8 +75,6 @@ function formVisibility(containerId) {
     event.preventDefault();
 
 }
-
-
 function toggleIcon(iconId) {
     var icon = document.getElementById(iconId);
     icon.classList.toggle('heart-filled');
@@ -101,18 +101,37 @@ function Login(event) {
     var password = document.getElementById('password-login').value;
     var accountType = document.getElementById('accountSelect').value;
 
-    if (accountType === 'admin' && email === '2020100' && password === '123') {
+
+    if (accountType === 'admin' && email === '202010037' && password === 'admin123') {
         alert('Admin login successful.');
         window.location.href = 'admin.html';
 
-    } else if (accountType === 'student' && email === '1010100' && password === '123') {
+    } else if (accountType === 'student' && email === '101010037' && password === 'student123') {
         alert('Student login successful');
         window.location.href = 'user.html';
     } else {
         alert('Invalid user ID or Password');
     }
+    
     event.preventDefault();
 }
+// to keep content in the form when user submits when the information is incorrect so they won't have to type everything over
+
+document.getElementById('signupForm').addEventListener('submit', function(event) {
+    const first = document.getElementById('firstname');
+    const last = document.getElementById('lastname');
+    const userid = document.getElementById('userID');
+    const email = document.getElementById('email');
+
+    if (first.value.trim() === '' && last.value.trim() === '' && userid.value.trim() === '' && email.value.trim() === '') {
+        event.preventDefault(); // Prevent form submission
+        
+    }
+    else  {
+        // Clear the form on successful submission
+        document.getElementById('signupForm').reset();
+    }
+});
 
 /**======SIDE BAR ========= */
 function changeColor(element) {
@@ -161,22 +180,46 @@ function enableEdit(inputId) {
     inputElement.removeAttribute('disabled');
     inputElement.focus();
   }*/
-function Edit() {
-    const inputs = document.querySelectorAll('.profile .input');
-    const isDisabled = inputs[0].disabled;
+  function editDetails() {
+    var inputs = document.querySelectorAll('.input');
+    var editSaveButton = document.querySelector('.edit');
+    var saveButton = document.querySelector('.save');
 
-    inputs.forEach(input => {
-        input.disabled = !isDisabled;
+    // Toggle the "disabled" attribute for all input fields
+    inputs.forEach(function(input) {
+        input.disabled = !input.disabled;
     });
-}
 
-function saveChanges() {
-    const inputs = document.querySelectorAll('.profile .input');
-
-    inputs.forEach(input => {
-        input.disabled = true;
-    });
+    // Toggle the display of buttons
+    editSaveButton.style.display = editSaveButton.style.display === 'none' ? 'inline-block' : 'none';
+    saveButton.style.display = saveButton.style.display === 'none' ? 'inline-block' : 'none';
 }
+    function saveChanges() {
+        event.preventDefault();
+        const form = document.getElementById('profileForm');
+        const formData = new FormData(form);
+
+        fetch('database.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            if (data === '') {
+                // Handle success (optional)
+            } else {
+                // Handle error
+                try {
+                    const errorResponse = JSON.parse(data);
+                    console.error(errorResponse.message);
+                } catch (error) {
+                    console.error('Error parsing JSON:', error);
+                }
+            }
+        })
+        .catch(error => console.error(error));
+    }
 
 /*=========================Adding Rooms====================== */
 function addRoom() {
@@ -238,6 +281,8 @@ function addRoom() {
 function editRoom(button) {
     var roomContainer = button.closest('.room');
     var labelsToEdit = roomContainer.querySelectorAll('.roomName, .roomDetails label');
+    var editSaveButton = roomContainer.querySelector('.editRoom');
+    var saveButton = roomContainer.querySelector('.saveRoom');
 
     labelsToEdit.forEach(function (label) {
         label.contentEditable = !label.isContentEditable;
@@ -262,7 +307,10 @@ function editRoom(button) {
         // Remove the delete button when switching back to read-only state
         deleteButton.remove();
     }
-    button.textContent = labelsToEdit[0].isContentEditable ? 'Save Changes' : 'Edit';
+    button.textContent = labelsToEdit[0].isContentEditable ? 'Save Changes' : 'Edit';   
+    editSaveButton.style.display = editSaveButton.style.display === 'none' ? 'inline-block' : 'none';  
+    saveButton.style.display = saveButton.style.display === 'none' ? 'inline-block' : 'none';
+    
 }
 
 function deleteRoom(roomContainer) {
