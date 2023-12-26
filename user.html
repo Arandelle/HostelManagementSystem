@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +30,9 @@
                     <div class="profile-container">
                         <ion-icon class="profile-picture" name="person-circle"></ion-icon>
                         <div class="user-info">
-                            <div class="user-name">Yumeko</div>
+                            <div class="user-name">
+                                Yumeko
+                            </div>
                             <div class="user-role">Student</div>
                         </div>
                     </div>
@@ -105,7 +108,7 @@
                         <p> Are you sure you want to Logout?</p>
                         <div class="logout-option">
                             <a href="#" class="cancel" onclick="formVisibility('logoutForm')">Cancel</a>
-                            <a href="index.html" class="logouts">Logout</a>
+                            <a href="index.html" name="logout" class="logouts">Logout</a>
                         </div>
                     </form>
                 </div>
@@ -140,39 +143,53 @@
                 </div>
             </article>
             <article class="features hide" id="profile">
-                <div class="profile">
-                    <div class="header">
-                        <h4>My Profile</h4>
+                <div class="header">
+                    <h4>My Profile</h4>
+                </div>
+                <form class="profile" id="profileForm" name="save" action="" method="POST">
+                    <div>
+                        <label for="firstname">First Name: </label>
+                        <input class="input" type="text" name="firstname" placeholder="Add firstname"
+                            value="Yumeko" autocomplete="no-autofill" disabled>
                     </div>
                     <div>
-                        <label for="name">Student Name: </label>
-                        <input class="input" type="text" name="name" value="Yumeko Jabami" autocomplete="no-autofill"
-                            disabled>
+                        <label for="lastname">Last Name: </label>
+                        <input class="input" type="text" name="lastname" placeholder="Add lastname"
+                            value="Jabami" autocomplete="no-autofill" disabled>
                     </div>
                     <div>
-                        <label for="adminId">Student ID:</label>
-                        <input type="text" name="adminId" id="adminId" value="1010100" disabled>
+                        <label for="userID">Student ID:</label>
+                        <input type="text" name="userID" id="userID" value="101010037" disabled>
                     </div>
                     <div>
                         <label for="email">Email: </label>
                         <input class="input" type="email" name="email" id="email" placeholder="Add email"
-                            autocomplete="no-autofill">
+                            value="Yumeko@gmail.com" autocomplete="no-autofill" disabled>
+
                     </div>
                     <div>
                         <label for="number">Phone number: </label>
-                        <input class="input" type="tel" name="number" id="number" placeholder="Add Phone number"
-                            autocomplete="no-autofill">
+                        <input class="input" type="tel" name="number" id="number" placeholder="Add phone number"
+                            value="" autocomplete="no-autofill" disabled>
                     </div>
                     <div>
                         <label for="address">Address: </label>
-                        <input class="input" type="address" name="address" id="address" placeholder="Address"
-                            autocomplete="no-autofill">
+                        <input class="input" type="address" name="address" id="address" placeholder="Add Address"
+                            value="" autocomplete="no-autofill" disabled>
                     </div>
-                </div>
+                    <div class="buttons">
+                        <div>
+                            <button class="update" type="button" onclick="formVisibility('updatePass')">Update
+                                Password</button>
+                        </div>
+                        <button type="button" class="edit" onclick="editDetails()">Edit Details</button>
+                        <button type="button" class="save" name="save" style="display: none;" onclick="editDetails()">Save Update</button>
+                    </div>
+                </form>
                 <div class="updatePass" id="updatePass">
                     <fieldset>
                         <legend>Update Password</legend>
-                        <form action="">
+                        <form action="" method="post" name="updatePassword">
                             <span class="close" onclick="formVisibility('updatePass')">&times;</span>
                             <div class="form-group">
                                 <div class="input-group">
@@ -207,17 +224,6 @@
                         </form>
                     </fieldset>
                 </div>
-                <div class="buttons">
-                    <div>
-                        <button class="update" onclick="formVisibility('updatePass')">Update Password</button>
-                    </div>
-                    <div>
-                        <button class="edit" onclick="Edit()">Edit Details</button>
-                    </div>
-                    <div>
-                        <button class="save" onclick="saveChanges()">Save Update</button>
-                    </div>
-                </div>
             </article>
 
             <article class="features hide" id="roomManagement">
@@ -225,18 +231,46 @@
                     <div class="header">
                         <h4>Book Room</h4>
                     </div>
+                    <div class="rooms" id="roomsContainer">
                     <div class="room">
                         <img src="images/room2.jpg" alt="Room Image">
-                        <label for="" class="roomName">Chaotic Room</label>
+                        <label for="" class="roomName">Double Serenity Oasis</label>
                         <div class="roomDetails">
-                            <label for="" class="roomDetails"><ion-icon name="cube-outline"></ion-icon>350sqf</label>
+                            <label for="" class="roomDetails"><ion-icon name="cube-outline"></ion-icon>450sqm</label>
                             <label for="" class="roomDetails"><ion-icon name="bed-outline"></ion-icon>2</label>
                             <label for="" class="roomDetails"><ion-icon
-                                    name="pricetag-outline"></ion-icon>PHP&nbsp3500</label>
+                                    name="pricetag-outline"></ion-icon>PHP&nbsp2999</label>
                         </div>
                         <button onclick="formVisibility('bookRoom')">
                             Book Now
                         </button>
+                    </div>
+                    <div class="room">
+                        <img src="images/room1.jpg" alt="Room Image">
+                        <label for="" class="roomName">Urban Chic Lodging</label>
+                        <div class="roomDetails">
+                            <label for="" class="roomDetails"><ion-icon name="cube-outline"></ion-icon>350sqm</label>
+                            <label for="" class="roomDetails"><ion-icon name="bed-outline"></ion-icon>2</label>
+                            <label for="" class="roomDetails"><ion-icon
+                                    name="pricetag-outline"></ion-icon>PHP&nbsp3499</label>
+                        </div>
+                        <button onclick="formVisibility('bookRoom')">
+                            Book Now
+                        </button>
+                    </div>
+                    <div class="room">
+                        <img src="images/room3.jpg" alt="Room Image">
+                        <label for="" class="roomName">Chesnut Comfort Oasis</label>
+                        <div class="roomDetails">
+                            <label for="" class="roomDetails"><ion-icon name="cube-outline"></ion-icon>450sqm</label>
+                            <label for="" class="roomDetails"><ion-icon name="bed-outline"></ion-icon>3</label>
+                            <label for="" class="roomDetails"><ion-icon
+                                    name="pricetag-outline"></ion-icon>PHP&nbsp4499</label>
+                        </div>
+                        <button onclick="formVisibility('bookRoom')">
+                            Book Now
+                        </button>
+                    </div>
                     </div>
                 </div>
 
@@ -274,11 +308,21 @@
                                 </div>
                             </div>
                             <div>
-                                <button type="button" class="confirm" onclick="formVisibility('bookRoom')">Confirm
+                                <button type="button" class="confirm" onclick="formVisibility('bookConfirm')">Confirm
                                     Booking</button>
                             </div>
                         </form>
                     </fieldset>
+                </div>
+                <div class="bookConfirm" id="bookConfirm">
+                    <form>
+                        <span class="close" onclick="formVisibility('bookConfirm')">&times;</span>
+                        <p> Enter your password to confirm booking:</p>
+                        <div class="enterPassword">
+                            <input type="password">
+                            <a href="#" name="enterPassword" onclick="formVisibility('bookConfirm');formVisibility('bookRoom')">Enter</a>
+                        </div>
+                    </form>
                 </div>
                 <!--        
                     <select id="roomStatus" required>
@@ -289,20 +333,21 @@
             </article>
 
             <article class="features hide meal" id="mealManagement">
-               
+
                 <div class="mealManagementUser">
                     <div class="viewOrder">
-                        <button class="order-button" onclick="showOrders()">View Order (<span id="orderCount">0</span>)</button>
+                        <button class="order-button" onclick="showOrders()">View Order (<span
+                                id="orderCount">0</span>)</button>
                     </div>
                     <div class="header">
                         <h4>Meal Management / Main Dish</h4>
                     </div>
                     <div class="mealList">
-                        <img src="images/meal.jpg" alt="Room Image">
+                        <img src="images/steak.jpg" alt="Room Image">
                         <label for="" class="mealName">Pancit</label>
                         <div class="mealDetails">
-                            <label for="" class="mealDetails"><ion-icon
-                                    name="pricetag-outline"></ion-icon>PHP 35</label>
+                            <label for="" class="mealDetails"><ion-icon name="pricetag-outline"></ion-icon>PHP
+                                35</label>
                             <div class="quantity-container">
                                 <button class="quantity-button" onclick="decrementQuantity('product1')">-</button>
                                 <input type="number" id="product1" name="quantity" class="quantity-input" value="1"
@@ -315,11 +360,11 @@
                         </button>
                     </div>
                     <div class="mealList">
-                        <img src="images/meal.jpg" alt="Room Image">
+                        <img src="images/bur.png" alt="Room Image">
                         <label for="" class="mealName">Beef Tapa</label>
                         <div class="mealDetails">
-                            <label for="" class="mealDetails"><ion-icon
-                                    name="pricetag-outline"></ion-icon>PHP 75</label>
+                            <label for="" class="mealDetails"><ion-icon name="pricetag-outline"></ion-icon>PHP
+                                75</label>
                             <div class="quantity-container">
                                 <button class="quantity-button" onclick="decrementQuantity('product2')">-</button>
                                 <input type="number" id="product2" name="quantity" class="quantity-input" value="1"
@@ -349,7 +394,7 @@
                         </button>
                     </div>
                     <div id="ordersContainer">
-                        
+
                     </div>
                 </div>
             </article>
@@ -443,12 +488,12 @@
                     <div class="header">
                         <h4>User Feedbacks</h4>
                     </div>
-                    
-                            <td>
-                                <a href="#" class="reply" onclick="formVisibility('reply', this)">Send Concern</a>
-                                <a href="#" class="delete" onclick="deleteRow(this)">Message Receive</a>
-                                <a href="#" class="delete" onclick="deleteRow(this)">Delete</a>
-                            </td>
+
+                    <td>
+                        <a href="#" class="reply" onclick="formVisibility('reply', this)">Send Concern</a>
+                        <a href="#" class="delete" onclick="deleteRow(this)">Message Receive</a>
+                        <a href="#" class="delete" onclick="deleteRow(this)">Delete</a>
+                    </td>
                     <div class="updatePass" id="reply">
                         <fieldset>
                             <legend>feedbacks</legend>
