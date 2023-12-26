@@ -44,7 +44,7 @@
                         </li>
 
                         <li id="user" class="nav-item" onclick="changeColor(this); show('userManagement')"><a
-                                href="#"><ion-icon name="person"></ion-icon><span>User Management</span></a>
+                                href="#"><ion-icon name="person"></ion-icon><span>User Management</span></a>                            
                             <div class="line"></div>
                         </li>
 
@@ -125,9 +125,9 @@
                         <h3>My Profile</h3>
                         <img src="images/person.png" alt="" class="person">
                     </div>
-                    <div class="box" onclick="show('userManagement'); changeColor(document.getElementById('user'))">
-                        <h3>View Students</h3>
-                        <img src="images/user.png" alt="">
+                    <div class="box-user" onclick="show('userManagement'); changeColor(document.getElementById('user'))">
+                        <h3>View Students </h3>
+                        <img src="images/user.png" alt="">                     
                     </div>
                     <div class="box" onclick="show('roomManagement'); changeColor(document.getElementById('room'))">
                         <h3>Room Allocation</h3>
@@ -148,32 +148,45 @@
                 </div>
             </article>
             <article class="features hide" id="profile">
-                <div class="profile">
                     <div class="header">
                         <h4>My Profile</h4>
                     </div>
-                    <div>
-                        <label for="name">Admin Name: </label>
-                        <input class="input" type="text" name="name" value="Arandelle Paguinto"
-                            autocomplete="no-autofill" disabled>
-                    </div>
-                    <div>
-                        <label for="adminId">Admin ID:</label>
-                        <input type="text" name="adminId" id="adminId" value="2020100" disabled>
-                    </div>
-                    <div>
-                        <label for="email">Email: </label>
-                        <input class="input" type="email" name="email" id="email" placeholder="Add email"
-                            autocomplete="no-autofill">
-                    </div>
-                    <div>
-                        <label for="number">Phone number: </label>
-                        <input class="input" type="tel" name="number" id="number" placeholder="Add Phone number"
-                            autocomplete="no-autofill">
-                    </div>
-
-
-                </div>
+                    <form class="profile" id="profileForm" name="save" action="" method="POST">
+                        <div>
+                            <label for="firstname">First Name: </label>
+                            <input class="input" type="text" name="firstname" placeholder="Add firstname"
+                                value="Arandelle" autocomplete="no-autofill" disabled>
+                        </div>
+                        <div>
+                            <label for="lastname">Last Name: </label>
+                            <input class="input" type="text" name="lastname" placeholder="Add lastname"
+                                value="Paguinto" autocomplete="no-autofill" disabled>
+                        </div>
+                        <div>
+                            <label for="adminId">Admin ID:</label>
+                            <input type="text" name="adminId" id="adminId" value="202010037" disabled>
+                        </div>
+                        <div>
+                            <label for="email">Email: </label>
+                            <input class="input" type="email" name="email" id="email" placeholder="Add email"
+                                value="" autocomplete="no-autofill" disabled>
+    
+                        </div>
+                        <div>
+                            <label for="number">Phone number: </label>
+                            <input class="input" type="tel" name="number" id="number" placeholder="Add phone number"
+                                value="" autocomplete="no-autofill" disabled>
+                        </div>
+    
+                        <div class="buttons">
+                            <div>
+                                <button class="update" type="button" onclick="formVisibility('updatePass')" ;>Update
+                                    Password</button>
+                            </div>
+                            <button type="button" class="edit" onclick="editDetails()">Edit Details</button>
+                            <button type="button" class="save" name="save" style="display: none;" onclick="editDetails()">Save Update</button>
+                        </div>
+                    </form>
                 <div class="updatePass" id="updatePass">
                     <fieldset>
                         <legend>Update Password</legend>
@@ -212,17 +225,8 @@
                         </form>
                     </fieldset>
                 </div>
-                <div class="buttons">
-                    <div>
-                        <button class="update" onclick="formVisibility('updatePass')">Update Password</button>
-                    </div>
-                    <div>
-                        <button class="edit" onclick="Edit()">Edit Details</button>
-                    </div>
-                    <div>
-                        <button class="save" onclick="saveChanges()">Save Update</button>
-                    </div>
-                </div>
+
+                
             </article>
 
 
